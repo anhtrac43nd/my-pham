@@ -1,0 +1,9 @@
+/node_modules
+/public/storage
+/storage/*.key
+/upload/hinh_anh
+/vendor
+/.idea
+Homestead.json
+Homestead.yaml
+.env
