@@ -56,4 +56,35 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
 	Route::get('nguoi-dung/sua/{id}', ['as' => 'suaNguoiDung', 'uses' => 'NguoiDungController@getSua']);
 	Route::post('nguoi-dung/sua/{id}', ['as' => 'postSuaNguoiDung', 'uses' => 'NguoiDungController@postSua']);
 	Route::get('nguoi-dung/xoa/{id}', ['as' => 'xoaNguoiDung', 'uses' => 'NguoiDungController@getXoa']);
+
+	//----------hoa-don----------------------------------------------------
+	Route::group(['prefix' => 'hoa-don-ban'], function(){
+		Route::get('', ['as' => 'hoaDonBan', 'uses' => 'HoaDonBanController@getDanhSach']);
+		Route::get('chi-tiet/{id}', ['as' => 'ctHoaDonBan', 'uses' => 'HoaDonBanController@getChiTietHD']);
+
+	});
+
+	Route::group(['prefix' => 'hoa-don-nhap'], function(){
+		Route::get('', ['as' => 'hoaDonNhap', 'uses' => 'HoaDonNhapController@getDanhSach']);
+		Route::get('chi-tiet/{id}', ['as' => 'ctHoaDonNhap', 'uses' => 'HoaDonNhapController@getChiTietHD']);
+
+	});
+
+	Route::get('nhap-hang', ['as' => 'nhapHang', 'uses' => 'NhapHangController@nhapHang']);
+	Route::get('them-hang', ['as' => 'themHang', 'uses' => 'NhapHangController@getThem']);
+	Route::post('them-hang', ['as' => 'postThemHang', 'uses' => 'NhapHangController@postThem']);
+	Route::get('sua-hang/{id}', ['as' => 'suaHang', 'uses' => 'NhapHangController@getSua']);
+	Route::post('sua-hang/{id}', ['as' => 'postSuaHang', 'uses' => 'NhapHangController@postSua']);
+	Route::get('api/nhap-hang', ['uses' => 'NhapHangController@apiNhapHang']);
+	Route::get('xoa-hang/{id}', ['as' => 'xoaHang', 'uses' => 'NhapHangController@xoaHang']);
+	Route::get('nhap-hang/thanh-toan', ['as' => 'thanhToan', 'uses' => 'NhapHangController@thanhToan']);
 });
+
+
+
+
+
+
+
+
+

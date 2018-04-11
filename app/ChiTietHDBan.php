@@ -12,4 +12,8 @@ class ChiTietHDBan extends Model
     public $timestamps = false;
 
     protected $primaryKey = 'ma_ct_hdb';
+
+    public function sanPham(){
+    	return $this->belongsTo('App\SanPham','ma_sp');
+    }
 }

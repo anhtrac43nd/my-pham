@@ -72,5 +72,29 @@
             </span>
           </a>
         </li>
+        <li>
+          <a href="{{route('hoaDonBan')}}">
+            <i class="fa fa-dashboard"></i> <span>Hóa Đơn Bán</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">new</small>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="{{route('hoaDonNhap')}}">
+            <i class="fa fa-dashboard"></i> <span>Hóa Đơn Nhập</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">new</small>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="{{route('nhapHang')}}">
+            <i class="fa fa-dashboard"></i> <span>Nhập Hàng</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">new</small>
+            </span>
+          </a>
+        </li>
       </ul>
     </section>

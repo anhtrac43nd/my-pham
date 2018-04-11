@@ -12,4 +12,8 @@ class HoaDonBan extends Model
     public $timestamps = false;
 
     protected $primaryKey = 'ma_sp';
+
+    public function nguoiDung(){
+    	return $this->belongsTo('App\NguoiDung','ma_nd');
+    }
 }
