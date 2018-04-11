@@ -42,7 +42,7 @@ class NguoiDungController extends Controller
     	$nguoi_dung->sdt = $request->sdt;
     	$nguoi_dung->dia_chi = $request->dia_chi;
     	$nguoi_dung->ten_tk = $request->ten_tai_khoan;
-    	$nguoi_dung->mat_khau = bcrypt($request->mat_khau);
+    	$nguoi_dung->mat_khau = md5($request->mat_khau);
     	$nguoi_dung->ma_quyen = $request->ma_quyen;
     	$nguoi_dung->save();
     	return redirect()->route('nguoiDung')->with('thongbao','Thêm Thành Công');
@@ -65,7 +65,7 @@ class NguoiDungController extends Controller
 					'nhac_mat_khau.same' => 'Mật khẩu phải trùng nhau'
 				]
 			);	
-    		$nguoi_dung->mat_khau = bcrypt($request->mat_khau);
+    		$nguoi_dung->mat_khau = md5($request->mat_khau);
 
     	}
 

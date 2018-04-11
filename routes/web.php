@@ -14,8 +14,12 @@
 Route::get('/', function () {
     return view('admin.master');
 });
+Route::get('admin/login', ['as' => 'adminLogin', 'uses' => 'Admin\LoginController@login']);
+Route::post('admin/login', ['as' => 'postAdminLogin', 'uses' => 'Admin\LoginController@postLogin']);
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'adminLogin'], function(){
+	Route::get('logout', ['as' => 'adminLogout', 'uses' => 'LoginController@logout']);
+	//----------------------------------------------------------------------
 	Route::get('', ['as' => 'dashboard', 'uses' => 'DashBoardController@index']);
 	//------------thuong hieu-----------------------------------------------
 	Route::get('thuong-hieu', ['as' => 'thuongHieu', 'uses' => 'ThuongHieuController@getDanhSach']);
@@ -88,3 +92,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
