@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin.master');
+Route::group(['namespace' => 'User'], function(){
+	Route::get('/', ['as' => 'trangChu', 'uses' => 'IndexController@index'] );
+
 });
 Route::get('admin/login', ['as' => 'adminLogin', 'uses' => 'Admin\LoginController@login']);
 Route::post('admin/login', ['as' => 'postAdminLogin', 'uses' => 'Admin\LoginController@postLogin']);

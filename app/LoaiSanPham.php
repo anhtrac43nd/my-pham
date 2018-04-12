@@ -13,6 +13,8 @@ class LoaiSanPham extends Model
 
     protected $primaryKey = 'ma_loai';
 
+	protected $fillable = ['ten_loai', 'ten_khong_dau'];
+
     // public function sanPham(){
     
     // 	return $this->hasMany('App\SanPham','ma_loai','ma_sp');

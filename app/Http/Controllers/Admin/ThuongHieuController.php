@@ -28,6 +28,7 @@ class ThuongHieuController extends Controller
     	$ten_thuong_hieu = $request->thuong_hieu;
     	$thuong_hieu = new ThuongHieu;
     	$thuong_hieu->ten_thuong_hieu = $ten_thuong_hieu;
+        $thuong_hieu->ten_khong_dau = changeTitle($ten_thuong_hieu);
     	$thuong_hieu->save();
     	return redirect()->route('thuongHieu')->with('thongbao','Thêm thành công');
     }
@@ -48,6 +49,7 @@ class ThuongHieuController extends Controller
     	$ten_thuong_hieu = $request->thuong_hieu;
     	$thuong_hieu = ThuongHieu::find($id);
     	$thuong_hieu->ten_thuong_hieu = $ten_thuong_hieu;
+        $thuong_hieu->ten_khong_dau = changeTitle($ten_thuong_hieu);
     	$thuong_hieu->save();
     	return redirect()->route('thuongHieu')->with('thongbao','Sửa thành công');
     }

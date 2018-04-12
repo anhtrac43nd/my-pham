@@ -12,5 +12,8 @@ class ThuongHieu extends Model
     public $timestamps = false;
 
     protected $primaryKey = 'ma_thuong_hieu';
+
+	protected $fillable = ['ten_thuong_hieu', 'ten_khong_dau'];
+
     
 }

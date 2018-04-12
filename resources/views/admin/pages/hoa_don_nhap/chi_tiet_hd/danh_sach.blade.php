@@ -55,7 +55,7 @@
                 <tr>
                   <td>{{$row->ma_cthd}}</td>
                   <td>{{$row->ma_hdn}}</td>
-                  <td>{{$row->ma_sp}}</td>
+                  <td>{{$row->sanPham->ten_sp}}</td>
                   <td>{{$row->so_luong}}</td>
                   <td>{{$row->gia_nhap}}</td>
                   <td>{{$row->thanh_tien}}</td>

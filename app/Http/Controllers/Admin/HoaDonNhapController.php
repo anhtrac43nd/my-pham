@@ -15,7 +15,8 @@ class HoaDonNhapController extends Controller
     }
 
     public function getChiTietHD($id){
-    	$chi_tiet_hd = ChiTietHDNhap::all();
+    	$chi_tiet_hd = ChiTietHDNhap::where('ma_hdn', $id)->get();
+    	// dd($chi_tiet_hd);
     	return view('admin.pages.hoa_don_nhap.chi_tiet_hd.danh_sach', compact('chi_tiet_hd'));
     }
 }

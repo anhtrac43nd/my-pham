@@ -28,6 +28,7 @@ class LoaiSanPhamController extends Controller
     	$ten_loai_san_pham = $request->loai_san_pham;
     	$loai_san_pham = new LoaiSanPham;
     	$loai_san_pham->ten_loai = $ten_loai_san_pham;
+        $loai_san_pham->ten_khong_dau = changeTitle($ten_loai_san_pham);
     	$loai_san_pham->save();
     	return redirect()->route('loaiSanPham')->with('thongbao','Thêm thành công');
     }
@@ -47,6 +48,7 @@ class LoaiSanPhamController extends Controller
     	$ten_loai_san_pham = $request->loai_san_pham;
     	$loai_san_pham = LoaiSanPham::find($id);
     	$loai_san_pham->ten_loai = $ten_loai_san_pham;
+        $loai_san_pham->ten_khong_dau = changeTitle($ten_loai_san_pham);
     	$loai_san_pham->save();
     	return redirect()->route('loaiSanPham')->with('thongbao','Sửa thành công');
     }

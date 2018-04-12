@@ -71,6 +71,7 @@ class SanPhamController extends Controller
         */
         $san_pham = new SanPham;
         $san_pham->ten_sp = $ten_san_pham;
+        $san_pham->ten_khong_dau = changeTitle($ten_san_pham);
         $san_pham->ma_loai = $ma_loai_sp;
         $san_pham->ma_thuong_hieu = $ma_thuong_hieu;
         $san_pham->don_gia = $gia;
@@ -141,6 +142,7 @@ class SanPhamController extends Controller
         	Lưu sản phẩm
         */
         $san_pham->ten_sp = $ten_san_pham;
+        $san_pham->ten_khong_dau = changeTitle($ten_san_pham);
         $san_pham->ma_loai = $ma_loai_sp;
         $san_pham->ma_thuong_hieu = $ma_thuong_hieu;
         $san_pham->don_gia = $gia;
