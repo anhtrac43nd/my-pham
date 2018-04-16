@@ -61,6 +61,14 @@
           </a>
         </li>
         <li>
+          <a href="{{route('slide')}}">
+            <i class="fa fa-dashboard"></i> <span>Slide</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">new</small>
+            </span>
+          </a>
+        </li>
+        <li>
           <a href="{{route('quyen')}}">
             <i class="fa fa-dashboard"></i> <span>Quyền</span>
             <span class="pull-right-container">

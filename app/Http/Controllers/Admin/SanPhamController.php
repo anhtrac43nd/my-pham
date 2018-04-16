@@ -128,7 +128,10 @@ class SanPhamController extends Controller
             	}
             	$ten_url = date('H-i-s-Y-m-d').'-'.$ten;
             	$request->file('hinh_anh')->move(public_path().'/upload/hinh_anh',$ten_url);
-            	unlink('upload/hinh_anh/'.$san_pham->anh);
+                $url = public_path().'/upload/hinh_anh/'.$san_pham->anh;
+                if(file_exists($url)){
+                    unlink('upload/hinh_anh/'.$san_pham->anh);
+                }
 		        $san_pham->anh = $ten_url;
             } else {
             	return redirect()->route('themSanPham')->with('error','Sai định dạng file');
@@ -154,8 +157,11 @@ class SanPhamController extends Controller
 
     public function getXoa($id){
     	$san_pham = SanPham::find($id);
-    	$san_pham->delete();
-        unlink('upload/hinh_anh/'.$san_pham->anh);
+        $url = public_path().'/upload/hinh_anh/'.$san_pham->anh;
+        if(file_exists($url)){
+            unlink('upload/hinh_anh/'.$san_pham->anh);
+        }
+        $san_pham->delete();
     	return redirect()->route('sanPham')->with('thongbao','Xóa thành công');
     }
 }

@@ -16,7 +16,7 @@ class AdminLoginMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Session::get('nguoi_dung')){
+        if(Session::get('nguoi_dung') && Session::get('nguoi_dung.ma_quyen') != 3){
             return $next($request);
         }else{
             return redirect()->route('adminLogin');

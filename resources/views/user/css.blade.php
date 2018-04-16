@@ -14,3 +14,14 @@
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{asset('')}}users/images/ico/apple-touch-icon-114-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset('')}}users/images/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="{{asset('')}}users/images/ico/apple-touch-icon-57-precomposed.png">
+<style>
+    #disable_a {
+        pointer-events: none;
+        cursor: default;
+    }
+
+    /*.add-to-cart {*/
+        /*pointer-events: none;*/
+        /*cursor: default;*/
+    /*}*/
+</style>

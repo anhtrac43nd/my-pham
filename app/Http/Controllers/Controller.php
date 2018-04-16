@@ -7,7 +7,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Session;
-
+use App\LoaiSanPham;
+use App\ThuongHieu;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -16,5 +17,12 @@ class Controller extends BaseController
     	if (session_status() == PHP_SESSION_NONE) {
 		    session_start();
 		}
+
+        $loai_san_pham = LoaiSanPham::all();
+        view()->share('loai_san_pham', $loai_san_pham);
+
+        $thuong_hieu = ThuongHieu::all();
+        view()->share('thuong_hieu', $thuong_hieu);
+
     }
 }

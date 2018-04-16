@@ -12,9 +12,22 @@
 */
 
 Route::group(['namespace' => 'User'], function(){
-	Route::get('/', ['as' => 'trangChu', 'uses' => 'IndexController@index'] );
+    Route::get('dang-nhap',['as' => 'dangNhap', 'uses' => 'IndexController@getDangNhap']);
+    Route::post('dang-nhap',['as' => 'postDangNhap', 'uses' => 'IndexController@postDangNhap']);
+    Route::get('dang-ky',['as' => 'dangKy', 'uses' => 'IndexController@getDangKy']);
+    Route::post('dang-ky',['as' => 'postDangKy', 'uses' => 'IndexController@postDangKy']);
+    Route::get('dang-xuat',['as' => 'dangXuat', 'uses' => 'IndexController@dangXuat']);
 
+	Route::get('/', ['as' => 'trangChu', 'uses' => 'IndexController@index'] );
+	Route::get('thuong-hieu/{name}', ['as' => 'thuong_hieu', 'uses' => 'IndexController@getThuongHieu']);
+	Route::get('loai-san-pham/{name}', ['as' => 'loai_sp', 'uses' => 'IndexController@getLoaiSanPham']);
+	Route::get('chi-tiet-san-pham/{name}', ['as' => 'chi_tiet_sp', 'uses' => 'IndexController@getChiTietSP']);
+
+    Route::get('gio-hang', ['as' => 'gioHang', 'uses' => 'GioHangController@gioHang']);
+    Route::get('them-gio-hang/{id}', ['as' => 'themGioHang', 'uses' => 'GioHangcontroller@themGioHang']);
 });
+
+//-----------------Admin-------------------------------------------------------------------
 Route::get('admin/login', ['as' => 'adminLogin', 'uses' => 'Admin\LoginController@login']);
 Route::post('admin/login', ['as' => 'postAdminLogin', 'uses' => 'Admin\LoginController@postLogin']);
 
@@ -61,7 +74,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
 	Route::get('nguoi-dung/sua/{id}', ['as' => 'suaNguoiDung', 'uses' => 'NguoiDungController@getSua']);
 	Route::post('nguoi-dung/sua/{id}', ['as' => 'postSuaNguoiDung', 'uses' => 'NguoiDungController@postSua']);
 	Route::get('nguoi-dung/xoa/{id}', ['as' => 'xoaNguoiDung', 'uses' => 'NguoiDungController@getXoa']);
-
+    //-----------slide-----------------------------------------------------
+    Route::get('slide', ['as' => 'slide', 'uses' => 'SlideController@getDanhSach']);
+    Route::get('slide/them', ['as' => 'themSlide', 'uses' => 'SlideController@getThem']);
+    Route::post('slide/them', ['as' => 'postThemSlide', 'uses' => 'SlideController@postThem']);
+    Route::get('slide/sua/{id}', ['as' => 'suaSlide', 'uses' => 'SlideController@getSua']);
+    Route::post('slide/sua/{id}', ['as' => 'postSuaSlide', 'uses' => 'SlideController@postSua']);
+    Route::get('slide/xoa/{id}', ['as' => 'xoaSlide', 'uses' => 'SlideController@getXoa']);
 	//----------hoa-don----------------------------------------------------
 	Route::group(['prefix' => 'hoa-don-ban'], function(){
 		Route::get('', ['as' => 'hoaDonBan', 'uses' => 'HoaDonBanController@getDanhSach']);
