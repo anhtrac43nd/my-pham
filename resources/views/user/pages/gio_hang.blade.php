@@ -20,34 +20,52 @@
                         <td></td>
                     </tr>
                     </thead>
-                    <tbody>
-                    @foreach($gio_hang as $row)
+                    <tbody id="data_cart">
+                    @foreach($gio_hang as $key => $row)
                         <tr>
                             <td class="cart_product">
                                 <a href=""><img width="100px" src="{{asset('')}}upload/hinh_anh/{{$row['anh']}}" alt=""></a>
                             </td>
                             <td class="cart_description">
-                                <h4><a href="">Colorblock Scuba</a></h4>
+                                <h4><a href="">{{$row['ten_sp']}}</a></h4>
                                 <p>Mã sản phẩm: {{$row['ma_sp']}}</p>
                             </td>
                             <td class="cart_price">
                                 <p>{{$row['gia']}}</p>
                             </td>
                             <td class="cart_quantity">
-                                <div class="cart_quantity_button">
-                                    <a class="cart_quantity_up" href=""> + </a>
-                                    <input class="cart_quantity_input" type="text" name="quantity" value="{{$row['so_luong']}}" autocomplete="off" size="2">
-                                    <a class="cart_quantity_down" href=""> - </a>
+                                <div class="cart_quantity_button" data-id="{{$key}}" >
+                                    <a class="cart_quantity_up" href="" data-id="{{$key}}"> + </a>
+                                    <input class="cart_quantity_input" data-id="{{$key}}" type="text" name="quantity" value="{{$row['so_luong']}}" autocomplete="off" size="2">
+                                    <a class="cart_quantity_down" data-id="{{$key}}" href=""> - </a>
                                 </div>
                             </td>
                             <td class="cart_total">
                                 <p class="cart_total_price">{{$row['thanh_tien']}} VNĐ</p>
                             </td>
                             <td class="cart_delete">
-                                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                <a data-id="{{$key}}" class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
                             </td>
                         </tr>
                     @endforeach
+                        <tr>
+                            <td class="cart_product">
+                                
+                            </td>
+                            <td class="cart_description">
+                                
+                            </td>
+                            <td class="cart_price">
+                            </td>
+                            <td class="cart_quantity">
+                                <h4>Tổng tiền</h4>
+                            </td>
+                            <td class="cart_total">
+                                <p class="cart_total_price">{{$tong_tien}} VND</p>
+                            </td>
+                            <td class="cart_delete">
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
