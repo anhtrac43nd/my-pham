@@ -19,7 +19,7 @@
 												<h2>{{$row->don_gia}} VND</h2>
 												<p>{{$row->ten_sp}}</p>
 											</a>
-											<a href="#" id="{{$row->ma_sp}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+											<a href="#" data-id="{{$row->ma_sp}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 										</div>
 										
 								</div>
@@ -51,7 +51,7 @@
 														<h2>{{$row_1->don_gia}}</h2>
 														<p>{{$row_1->ten_sp}}</p>
 													</a>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+													<a data-id="{{$row_1->ma_sp}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 												</div>
 
 											</div>
@@ -81,7 +81,7 @@
 															<h2>{{$row->don_gia}}</h2>
 															<p>{{$row->ten_sp}}</p>
 														</a>
-															<a id="{{$row->ma_sp}}" class="btn btn-default add-to-cart"><i class="fa
+															<a data-id="{{$row->ma_sp}}" class="btn btn-default add-to-cart"><i class="fa
 															fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 													</div>
 													
@@ -102,7 +102,7 @@
 															<h2>{{$row->don_gia}}</h2>
 															<p>{{$row->ten_sp}}</p>
 														</a>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+														<a data-id="{{$row->ma_sp}}" href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 													</div>
 													
 												</div>

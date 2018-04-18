@@ -22,12 +22,14 @@ Route::group(['namespace' => 'User'], function(){
 	Route::get('thuong-hieu/{name}', ['as' => 'thuong_hieu', 'uses' => 'IndexController@getThuongHieu']);
 	Route::get('loai-san-pham/{name}', ['as' => 'loai_sp', 'uses' => 'IndexController@getLoaiSanPham']);
 	Route::get('chi-tiet-san-pham/{name}', ['as' => 'chi_tiet_sp', 'uses' => 'IndexController@getChiTietSP']);
+    Route::get('tim-kiem', ['as' => 'timKiem', 'uses' => 'IndexController@timKiem']);
 
     Route::get('gio-hang', ['as' => 'gioHang', 'uses' => 'GioHangController@gioHang']);
     Route::get('them-gio-hang/{id}', ['as' => 'themGioHang', 'uses' => 'GioHangController@themGioHang']);
+    Route::get('them-hang/{id_sp}/{so_luong}', ['uses' => 'GioHangController@themHang']);
     Route::get('cap-nhat-hang/{id}/{so_luong}', ['as' => 'capNhat', 'uses' => 'GioHangController@capNhatGioHang']);
     Route::get('xoa-gio-hang/{id}', ['as' => 'xoaGioHang', 'uses' => 'GioHangController@xoaGioHang']);
-
+    Route::get('dat-hang', ['as' => 'datHang', 'uses' => 'GioHangController@datHang']);
 });
 
 //-----------------Admin-------------------------------------------------------------------

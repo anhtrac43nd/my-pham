@@ -56,29 +56,8 @@
                                     <img width="100px" src="{{asset('')}}upload/slide/{{$slide->anh}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputFile">Mô tả</label>
-                                    <div class="box box-info">
-                                        <div class="box-header">
-                                            <h3 class="box-title">CK Editor
-                                            </h3>
-
-                                            <div class="pull-right box-tools">
-                                                <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
-                                                        title="Collapse">
-                                                    <i class="fa fa-minus"></i></button>
-                                                <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip"
-                                                        title="Remove">
-                                                    <i class="fa fa-times"></i></button>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="box-body pad">
-                                            <textarea id="editor1" name="mo_ta" rows="20" cols="80">
-                                                {{$slide->noi_dung}}
-                                            </textarea>
-                                        </div>
-                                    </div>
+                                    <label for="">Mô tả</label>
+                                    <input type="text" class="form-control" value="{{$slide->noi_dung}}" id="" name="mo_ta" placeholder="Mô tả" required="">
                                 </div>
                             </div>
 

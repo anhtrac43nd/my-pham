@@ -64,7 +64,7 @@ class IndexController extends Controller
             Session::put('nguoi_dung', $nguoi_dung);
             return redirect()->route('trangChu');
         }else{
-            return redirect()->route('dangNhap')->with('thongbao','Đăng nhập thành công');
+            return redirect()->route('dangNhap')->with('thongbao','Đăng nhập không thành công');
         }
     }
 
@@ -104,5 +104,11 @@ class IndexController extends Controller
     public function dangXuat(){
         Session::forget('nguoi_dung');
         return redirect()->route('trangChu');
+    }
+
+    public function timKiem(Request $request){
+        $key = $request->key;
+        $san_pham = SanPham::where('ten_sp','like', '%' . $key . '%')->paginate(9);
+        return view('user.pages.tim_kiem',compact('san_pham'));
     }
 }

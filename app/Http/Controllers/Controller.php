@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Session;
 use App\LoaiSanPham;
 use App\ThuongHieu;
+use App\Slide;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -23,6 +24,9 @@ class Controller extends BaseController
 
         $thuong_hieu = ThuongHieu::all();
         view()->share('thuong_hieu', $thuong_hieu);
+
+        $slide = Slide::all();
+        view()->share('slide', $slide);
 
     }
 }

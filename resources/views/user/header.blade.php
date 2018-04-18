@@ -88,7 +88,9 @@
 					</div>
 					<div class="col-sm-3">
 						<div class="search_box pull-right">
-							<input type="text" placeholder="Search"/>
+							<form id="frm_search" action="{{route('timKiem')}}" method="get">
+								<input type="text" id="search" name="key" placeholder="Search"/>
+							</form>
 						</div>
 					</div>
 				</div>

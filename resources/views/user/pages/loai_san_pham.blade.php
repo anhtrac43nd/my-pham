@@ -23,7 +23,7 @@
 												<h2>{{$row->don_gia}} VND</h2>
 												<p>{{$row->ten_sp}}</p>
 											</a>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+											<a data-id="{{$row->ma_sp}}" href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 										</div>
 										
 								</div>
