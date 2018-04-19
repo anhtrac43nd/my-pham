@@ -37,7 +37,6 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="{{route('gioHang')}}"><i class="fa fa-shopping-cart"></i> Giỏ Hàng</a></li>
 								@if(!Session::get('nguoi_dung'))
 									<li><a href="{{route('dangKy')}}"><i class="fa fa-user"></i> Đăng ký</a></li>

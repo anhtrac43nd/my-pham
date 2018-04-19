@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\SanPham;
 use App\HoaDonNhap;
 use App\ChiTietHDNhap;
+use App\LoHang;
+
 class NhapHangController extends Controller
 {
     //
@@ -26,22 +28,32 @@ class NhapHangController extends Controller
     public function postThem(Request $request){
         $this->validate($request,[
                 'gia_nhap' => 'numeric',
-                'so_luong' => 'numeric'
+                'so_luong' => 'numeric',
+                'ngay_sx' => 'required'
             ],
             [
                 'gia_nhap.numeric' => 'Giá phải là chữ số',
-                'so_luong.numeric' => 'Số lượng phải là chữ số'
+                'so_luong.numeric' => 'Số lượng phải là chữ số',
+                'ngay_sx.required' => 'Bạn chưa nhập ngày sản xuất'
             ]
         );
     	$ma_san_pham = $request->san_pham;
     	$san_pham = SanPham::find($ma_san_pham);
     	$so_luong = $request->so_luong;
+    	$ngay_sx = $request->ngay_sx;
+    	if(isset($request->thanh_ly)){
+    	    $thanh_ly = 1;
+        }else{
+    	    $thanh_ly = 0;
+        }
     	$gia = $request->gia_nhap;
     	$thanh_tien = (int)$so_luong * (int)$gia;
     	$arr = [
     		'ma_sp' => $ma_san_pham,
     		'ten_sp' => $san_pham->ten_sp,
     		'gia_nhap' => $gia,
+            'ngay_sx' => $ngay_sx,
+            'thanh_ly' => $thanh_ly,
     		'so_luong' => $so_luong,
     		'thanh_tien' => $thanh_tien
    		];
@@ -123,6 +135,7 @@ class NhapHangController extends Controller
     }
 
     public function thanhToan(){
+//        dd($_SESSION['nhap_hang']);
         if(!isset($_SESSION['nhap_hang']) || count($_SESSION['nhap_hang']) == 0){
             return redirect()->route('nhapHang')->with('thongbao','Bạn chưa có hàng mới');
         }
@@ -142,6 +155,15 @@ class NhapHangController extends Controller
                 'so_luong' => $row['so_luong'],
                 'gia_nhap' => $row['gia_nhap'],
                 'thanh_tien' => $row['thanh_tien'],
+            ]);
+
+            $lo_hang = LoHang::create([
+                'ma_sp' =>  $row['ma_sp'],
+                'so_luong' => $row['so_luong'],
+                'gia_nhap' => $row['gia_nhap'],
+                'thanh_tien' => $row['thanh_tien'],
+                'ngay_sx' => $row['ngay_sx'],
+                'thanh_ly' => $row['thanh_ly'],
             ]);
 
             $san_pham = SanPham::find($row['ma_sp']);

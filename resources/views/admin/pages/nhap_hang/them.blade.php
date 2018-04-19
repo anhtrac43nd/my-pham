@@ -51,6 +51,14 @@
                   <label for="">Số Lượng</label>
                   <input type="text" class="form-control" id="" name="so_luong" placeholder="Nhập Số Lượng" required="">
                 </div>
+                <div class="form-group">
+                  <label for="">Ngày sản xuất</label>
+                  <input type="date" class="form-control" id="" name="ngay_sx" required="">
+                </div>
+                <div class="form-group">
+                  <label for="">Thanh lý</label>
+                  <input type="checkbox" value="1" name="thanh_ly" >
+                </div>
               </div>
 
               <!-- /.box-body -->

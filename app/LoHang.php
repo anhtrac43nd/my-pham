@@ -11,5 +11,7 @@ class LoHang extends Model
 
     public $timestamps = false;
 
+    protected $fillable = ['ma_sp', 'so_luong', 'gia_nhap', 'thanh_tien', 'ngay_sx', 'thanh_ly'];
+
     protected $primaryKey = 'ma_lo';
 }

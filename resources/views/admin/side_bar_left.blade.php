@@ -84,13 +84,17 @@
             </span>
           </a>
         </li>
-        <li>
-          <a href="{{route('hoaDonBan')}}">
-            <i class="fa fa-dashboard"></i> <span>Hóa Đơn Bán</span>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Hóa đơn bán</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
+              <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
+          <ul class="treeview-menu" style="display: none;">
+            <li><a href="{{route('hoaDonBan')}}"><i class="fa fa-circle-o"></i> Hóa đơn đã duyệt</a></li>
+            <li class="active"><a href="{{route('dsDuyetHoaDon')}}"><i class="fa fa-circle-o"></i> Hóa đơn chưa duyệt</a></li>
+          </ul>
         </li>
         <li>
           <a href="{{route('hoaDonNhap')}}">

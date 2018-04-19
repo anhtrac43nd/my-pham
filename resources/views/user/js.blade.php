@@ -19,9 +19,10 @@
                     if(data == 1){
                         notifyAdd();
                     }else if(data == 0){
-                        notifyError();
-                    }else{
                         notifyWarn();
+                    }else{
+                        notifyError();
+
                     }
                 }
 
@@ -135,19 +136,23 @@
 
     $(document).on('click', '#datHang', function(e){
         e.preventDefault();
-        notifySusses();
-        setTimeout(function(){
+        // setTimeout(function(){
             $.ajax({
                 type: "GET",
                 url: window.location.origin + '/dat-hang',
                 success: function (data) {
                     if(data == 1){
-                        window.location.href =  window.location.origin;
+                        notifySusses();
+                        setTimeout(function(){
+                            window.location.href =  window.location.origin;
+                        },3000);
+                    }else{
+                        notifyErrorLogin();
                     }
                 }
 
             })
-        }, 3000);
+        // }, 3000);
 
     });
 
@@ -169,5 +174,9 @@
 
     function notifySusses(){
         $.notify("Đặt hàng thành công, chúng tôi sẽ liên hệ với bạn để xác nhận đơn hàng", "success");
+    }
+
+    function notifyErrorLogin(){
+        $.notify("Vui lòng đăng nhập để đặt hàng", "error");
     }
 </script>

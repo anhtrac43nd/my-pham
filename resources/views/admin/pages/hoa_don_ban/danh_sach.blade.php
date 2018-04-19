@@ -48,6 +48,8 @@
                   <th>Trạng Thái Chuyển Tiền</th>
                   <th>Trạng Thái Nhận</th>
                   <th></th>
+                  <th></th>
+                  <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -63,13 +65,18 @@
                         Chưa Nhận
                       @endif
                   </td>
-                  <td>@if($row->trang_thai_nhan == 1)
+                  <td>@if($row->trang_thai_nhan == 2)
                         Đã Nhận
+                      @elseif($row->trang_thai_nhan == 1)
+                        Đang vận chuyển
                       @else
-                        Chưa Nhận
-                      @endif</td>
-                  <th><a href="{{route('ctHoaDonBan', $row->ma_hd)}}">Chi Tiết Hóa Đơn</a>
-                  </th>
+                        Chưa vận chuyển
+                      @endif
+                  </td>
+                  <td><a href="{{route('ctHoaDonBan', $row->ma_hd)}}">Chi Tiết Hóa Đơn</a>
+                  </td>
+                  <td><a href="{{route('ctHoaDonBan', $row->ma_hd)}}">In Hóa đơn</a></td>
+                  <td><a href="{{route('suaHoaDon', $row->ma_hd)}}">Cập nhật</a></td>
                 </tr>
                 @endforeach
                 </tfoot>

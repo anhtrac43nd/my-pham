@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Session;
 class IndexController extends Controller
 {
     //
-    public function index(){
+    public function trangChu(){
         $san_pham = SanPham::orderby('ma_sp','desc')->limit(6)->get();
         $thuong_hieu_1 = ThuongHieu::limit(8)->get();
         foreach($thuong_hieu_1 as $row){
@@ -36,8 +36,9 @@ class IndexController extends Controller
     }
 
     public function getChiTietSP($name){
+        $san_pham_random = SanPham::get()->random(3);
         $san_pham = SanPham::where('ten_khong_dau', $name)->first();
-        return view('user.pages.chi_tiet_sp', compact('san_pham'));
+        return view('user.pages.chi_tiet_sp', compact('san_pham','san_pham_random'));
     }
 
     public function getDangNhap(){

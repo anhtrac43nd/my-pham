@@ -225,12 +225,15 @@ class GioHangController extends Controller
 
     public function datHang(){
         if(!Session::get('nguoi_dung')){
-            return redirect()->route('dangNhap')->with('thongbao','Vui lòng đăng nhập để đặt hàng');
+            return 0;
         }
         $ma_nd = Session::get('nguoi_dung.ma_nd');
         $gio_hang = $_SESSION['gio_hang'];
         $tong_tien = 0;
         foreach($gio_hang as $row){
+            $san_pham = SanPham::find($row['ma_sp']);
+            $san_pham->so_luong = $san_pham->so_luong - (int)$row['so_luong'];
+            $san_pham->save();
             $tong_tien = $tong_tien + $row['thanh_tien'];
         }
         $hoa_don_ban = HoaDonBan::create([
@@ -238,7 +241,6 @@ class GioHangController extends Controller
             'ngay_dat_hang' =>  date('y-m-d'),
             'tong_tien' => $tong_tien,
         ]);
-//        dd($hoa_don_ban);
         foreach ($gio_hang as $row){
             $ct_hoa_don_ban = ChiTietHDBan::create([
                 'ma_hdb' => $hoa_don_ban->ma_hd,
@@ -250,7 +252,6 @@ class GioHangController extends Controller
         }
         $_SESSION['gio_hang'] = [];
         return 1;
-//        return redirect()->route('trangChu');
     }
 }
 
