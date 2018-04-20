@@ -47,7 +47,6 @@
                   <th>Số Lượng</th>
                   <th>Giá Nhập</th>
                   <th>Thành Tiền</th>
-                  <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -59,7 +58,6 @@
                   <td>{{$row->so_luong}}</td>
                   <td>{{$row->gia_nhap}}</td>
                   <td>{{$row->thanh_tien}}</td>
-                  <th><a href="">In Hóa Đơn</a>
                   </th>
                 </tr>
                 @endforeach

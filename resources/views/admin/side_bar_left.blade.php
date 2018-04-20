@@ -30,7 +30,7 @@
         <li class="header">MAIN NAVIGATION</li>
         <li>
           <a href="{{route('dashboard')}}">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-dashboard"></i> <span>Thống kê</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>
@@ -120,5 +120,6 @@
             </span>
           </a>
         </li>
+
       </ul>
     </section>

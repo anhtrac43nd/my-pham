@@ -50,6 +50,7 @@
                   <th>Loại Sản Phẩm</th>
                   <th>Tên Thương Hiệu</th>
                   <th>Giá</th>
+                  <th>Số lượng</th>
                   <th>Ảnh</th>
                   <th></th>
                 </tr>
@@ -62,9 +63,10 @@
                   <td>{{$row->loaiSanPham->ten_loai}}</td>
                   <td>{{$row->thuongHieu->ten_thuong_hieu}}</td>
                   <td>{{$row->don_gia}}</td>
-                  <th><img height="100px;" src="{{asset('')}}upload/hinh_anh/{{$row->anh}}"></th>
-                  <th><a href="{{route('suaSanPham', $row->ma_sp)}}">Sửa</a>|
-                      <a href="{{route('xoaSanPham', $row->ma_sp)}}">Xóa</a></th>
+                  <td>{{$row->so_luong}}</td>
+                  <td><img height="100px;" src="{{asset('')}}upload/hinh_anh/{{$row->anh}}"></td>
+                  <td><a href="{{route('suaSanPham', $row->ma_sp)}}">Sửa</a>|
+                      <a href="{{route('xoaSanPham', $row->ma_sp)}}">Xóa</a></td>
                 </tr>
                 @endforeach
                 </tfoot>

@@ -19,10 +19,10 @@ class Controller extends BaseController
 		    session_start();
 		}
 
-        $loai_san_pham = LoaiSanPham::all();
+        $loai_san_pham = LoaiSanPham::limit(10)->get();
         view()->share('loai_san_pham', $loai_san_pham);
 
-        $thuong_hieu = ThuongHieu::all();
+        $thuong_hieu = ThuongHieu::limit(10)->get();
         view()->share('thuong_hieu', $thuong_hieu);
 
         $slide = Slide::all();

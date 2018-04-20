@@ -26,10 +26,12 @@
         <button class="print-hd">In Hóa Đơn</button>
     </div>
     <div class="content" align="center">
-        <h1>Hóa đơn nhập</h1>
+        <h1>Hóa đơn</h1>
+        <h4>Tên khách hàng : {{$hoa_don->nguoiDung->ten_nd}}</h4>
         <h4>Người lập hóa đơn : {{$ten_nv}}</h4>
-        <h4>Ngày nhập hàng : {{$hoa_don->ngay_nhap}}</h4>
+        <h4>Ngày đặt hàng : {{$hoa_don->ngay_dat_hang}}</h4>
         <h4>Thời gian in:  {{$date}}</h4>
+
         <table>
             <tr>
                 <td>STT</td>
@@ -42,8 +44,8 @@
                 <tr>
                     <td>{{$key + 1}}</td>
                     <td>{{$row->sanPham->ten_sp}}</td>
-                    <td>{{$row->so_luong}}</td>
-                    <td>{{$row->gia_nhap}}</td>
+                    <td>{{$row->so_luong_ban}}</td>
+                    <td>{{$row->gia_sp}}</td>
                     <td>{{$row->thanh_tien}}</td>
                 </tr>
             @endforeach
@@ -52,7 +54,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>{{$hoa_don->tong_tien_nhap}}</td>
+                <td>{{$hoa_don->tong_tien}}</td>
             </tr>
         </table>
     </div>
