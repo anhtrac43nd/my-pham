@@ -53,7 +53,7 @@
                 <tbody>
                 @foreach($thuong_hieu as $row)
                 <tr>
-                  <td>TH{{$row->ma_thuong_hieu}}</td>
+                  <td>{{$row->ma_thuong_hieu}}</td>
                   <td>{{$row->ten_thuong_hieu}}
                   </td>
                   <th><a href="{{route('suaThuongHieu',$row->ma_thuong_hieu)}}">Sửa</a>|
