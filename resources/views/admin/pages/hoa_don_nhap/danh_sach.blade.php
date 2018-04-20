@@ -45,6 +45,7 @@
                   <th>Ngày Nhập</th>
                   <th>Tổng Tiền</th>
                   <th></th>
+                  <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -53,8 +54,9 @@
                   <td>{{$row->ma_hdn}}</td>
                   <td>{{$row->ngay_nhap}}</td>
                   <td>{{$row->tong_tien_nhap}}</td>
-                  <th><a href="{{route('ctHoaDonNhap', $row->ma_hdn)}}">Chi Tiết Hóa Đơn</a>
-                  </th>
+                  <td><a href="{{route('ctHoaDonNhap', $row->ma_hdn)}}">Chi Tiết Hóa Đơn</a>
+                  </td>
+                  <td><a href="{{route('inHDN', $row->ma_hdn)}}">In Hóa Đơn</a></td>
                 </tr>
                 @endforeach
                 </tfoot>

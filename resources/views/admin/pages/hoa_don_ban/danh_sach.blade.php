@@ -75,7 +75,7 @@
                   </td>
                   <td><a href="{{route('ctHoaDonBan', $row->ma_hd)}}">Chi Tiết Hóa Đơn</a>
                   </td>
-                  <td><a href="{{route('ctHoaDonBan', $row->ma_hd)}}">In Hóa đơn</a></td>
+                  <td><a href="{{route('inHDB', $row->ma_hd)}}" data-id="{{$row->ma_hd}}" class="print_hd" >In Hóa đơn</a></td>
                   <td><a href="{{route('suaHoaDon', $row->ma_hd)}}">Cập nhật</a></td>
                 </tr>
                 @endforeach
@@ -96,6 +96,7 @@
 
 @section('script')
 	<script src="{{asset('')}}admins/bower_components/jquery/dist/jquery.min.js"></script>
+
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('')}}admins/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- DataTables -->
@@ -109,8 +110,25 @@
 <script src="{{asset('')}}admins/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('')}}admins/dist/js/demo.js"></script>
-<!-- page script -->
-	<script>
+
+<script src="{{asset('')}}admins/js/jquery.printPage.js"></script>
+
+    <!-- page script -->
+<script>
+    // $(document).on('click', '.print_hd', function(){
+    //     var id = $(this).attr('data-id');
+    //     var url = window.location.origin + '/admin/hoa-don-ban/id/' + id;
+    //
+    //     $("<iframe>")                             // create a new iframe element
+    //         .hide()                               // make it invisible
+    //         .attr("src", url) // point the iframe to the page you want to print
+    //         .appendTo("body");
+    //     window.print();
+    //     // alert(url);
+    //
+    //     (console.log(window.print()));
+    // });
+    // $(".print_hd").printPage();
   $(function () {
     $('#example1').DataTable()
     $('#example2').DataTable({

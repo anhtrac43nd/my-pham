@@ -38,7 +38,7 @@
         </li>
         <li>
           <a href="{{route('thuongHieu')}}">
-            <i class="fa fa-dashboard"></i> <span>Thương Hiệu</span>
+            <i class="fa fa-ioxhost"></i> <span>Thương Hiệu</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>
@@ -46,7 +46,7 @@
         </li>
         <li>
           <a href="{{route('loaiSanPham')}}">
-            <i class="fa fa-dashboard"></i> <span>Loại Sản Phẩm</span>
+            <i class="fa fa-optin-monster"></i> <span>Loại Sản Phẩm</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>
@@ -54,7 +54,7 @@
         </li>
         <li>
           <a href="{{route('sanPham')}}">
-            <i class="fa fa-dashboard"></i> <span>Sản Phẩm</span>
+            <i class="fa fa-leanpub"></i> <span>Sản Phẩm</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>
@@ -62,7 +62,7 @@
         </li>
         <li>
           <a href="{{route('slide')}}">
-            <i class="fa fa-dashboard"></i> <span>Slide</span>
+            <i class="fa fa-sliders"></i> <span>Slide</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>
@@ -70,7 +70,7 @@
         </li>
         <li>
           <a href="{{route('quyen')}}">
-            <i class="fa fa-dashboard"></i> <span>Quyền</span>
+            <i class="fa fa-odnoklassniki-square"></i> <span>Quyền</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>
@@ -78,7 +78,7 @@
         </li>
         <li>
           <a href="{{route('nguoiDung')}}">
-            <i class="fa fa-dashboard"></i> <span>Người Dùng</span>
+            <i class="fa fa-user-md"></i> <span>Người Dùng</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>
@@ -86,7 +86,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Hóa đơn bán</span>
+            <i class="fa fa-opencart"></i> <span>Hóa đơn bán</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -98,7 +98,7 @@
         </li>
         <li>
           <a href="{{route('hoaDonNhap')}}">
-            <i class="fa fa-dashboard"></i> <span>Hóa Đơn Nhập</span>
+            <i class="fa fa-shopping-cart"></i> <span>Hóa Đơn Nhập</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>
@@ -106,7 +106,15 @@
         </li>
         <li>
           <a href="{{route('nhapHang')}}">
-            <i class="fa fa-dashboard"></i> <span>Nhập Hàng</span>
+            <i class="fa  fa-cloud-download"></i> <span>Nhập Hàng</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">new</small>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="{{route('loHang')}}">
+            <i class="fa fa-calendar-times-o"></i> <span>Lô Hàng</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>

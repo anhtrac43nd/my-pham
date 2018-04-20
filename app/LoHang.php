@@ -13,5 +13,9 @@ class LoHang extends Model
 
     protected $fillable = ['ma_sp', 'so_luong', 'gia_nhap', 'thanh_tien', 'ngay_sx', 'thanh_ly'];
 
+    public function sanPham(){
+        return $this->belongsTo('App\SanPham','ma_sp');
+    }
+
     protected $primaryKey = 'ma_lo';
 }

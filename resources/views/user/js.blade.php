@@ -136,7 +136,6 @@
 
     $(document).on('click', '#datHang', function(e){
         e.preventDefault();
-        // setTimeout(function(){
             $.ajax({
                 type: "GET",
                 url: window.location.origin + '/dat-hang',
@@ -146,13 +145,18 @@
                         setTimeout(function(){
                             window.location.href =  window.location.origin;
                         },3000);
+                    }else if(data == -1){
+
+                        notifyEmpty();
+
                     }else{
+
                         notifyErrorLogin();
+
                     }
                 }
 
             })
-        // }, 3000);
 
     });
 
@@ -178,5 +182,9 @@
 
     function notifyErrorLogin(){
         $.notify("Vui lòng đăng nhập để đặt hàng", "error");
+    }
+
+    function notifyEmpty(){
+        $.notify("Vui lòng thêm 1 sản phẩm vào giỏ hàng", "error");
     }
 </script>

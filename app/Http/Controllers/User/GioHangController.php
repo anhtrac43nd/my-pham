@@ -230,6 +230,9 @@ class GioHangController extends Controller
         $ma_nd = Session::get('nguoi_dung.ma_nd');
         $gio_hang = $_SESSION['gio_hang'];
         $tong_tien = 0;
+        if(count($gio_hang) == 0 ){
+            return -1;
+        }
         foreach($gio_hang as $row){
             $san_pham = SanPham::find($row['ma_sp']);
             $san_pham->so_luong = $san_pham->so_luong - (int)$row['so_luong'];

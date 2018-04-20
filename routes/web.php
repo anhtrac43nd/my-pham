@@ -96,12 +96,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
         Route::get('duyet-hoa-don/{id}', ['as' => 'duyetHD', 'uses' => 'HoaDonBanController@duyetHD']);
         Route::get('sua-hoa-don/{id}', ['as' => 'suaHoaDon', 'uses' => 'HoaDonBanController@suaHD']);
         Route::post('sua-hoa-don/{id}', ['as' => 'postSuaHoaDon', 'uses' => 'HoaDonBanController@postSuaHD']);
+
+        Route::get('in/{id}', ['as' => 'inHDB', 'uses' => 'InHoaDonController@inHDB']);
 	});
 
 	Route::group(['prefix' => 'hoa-don-nhap'], function(){
 		Route::get('', ['as' => 'hoaDonNhap', 'uses' => 'HoaDonNhapController@getDanhSach']);
 		Route::get('chi-tiet/{id}', ['as' => 'ctHoaDonNhap', 'uses' => 'HoaDonNhapController@getChiTietHD']);
-
+        Route::get('in/{id}', ['as' => 'inHDN', 'uses' => 'InHoaDonController@inHDN']);
 	});
 
 	Route::get('nhap-hang', ['as' => 'nhapHang', 'uses' => 'NhapHangController@nhapHang']);
@@ -112,6 +114,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
 	Route::get('api/nhap-hang', ['uses' => 'NhapHangController@apiNhapHang']);
 	Route::get('xoa-hang/{id}', ['as' => 'xoaHang', 'uses' => 'NhapHangController@xoaHang']);
 	Route::get('nhap-hang/thanh-toan', ['as' => 'thanhToan', 'uses' => 'NhapHangController@thanhToan']);
+
 });
 
 
