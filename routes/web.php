@@ -65,20 +65,24 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
 	Route::get('san-pham/xoa/{id}', ['as' => 'xoaSanPham', 'uses' => 'SanPhamController@getXoa']);
 
 	//-----------quyen----------------------------------------------------
-	Route::get('quyen', ['as' => 'quyen', 'uses' => 'QuyenController@getDanhSach']);
-	Route::get('quyen/them', ['as' => 'themQuyen', 'uses' => 'QuyenController@getThem']);
-	Route::post('quyen/them', ['as' => 'postThemQuyen', 'uses' => 'QuyenController@postThem']);
-	Route::get('quyen/sua/{id}', ['as' => 'suaQuyen', 'uses' => 'QuyenController@getSua']);
-	Route::post('quyen/sua/{id}', ['as' => 'postSuaQuyen', 'uses' => 'QuyenController@postSua']);
-	Route::get('quyen/xoa/{id}', ['as' => 'xoaQuyen', 'uses' => 'QuyenController@getXoa']);
+    Route::group(['prefix' => 'quyen', 'middleware' => 'phanQuyen'], function() {
+        Route::get('', ['as' => 'quyen', 'uses' => 'QuyenController@getDanhSach']);
+        Route::get('them', ['as' => 'themQuyen', 'uses' => 'QuyenController@getThem']);
+        Route::post('them', ['as' => 'postThemQuyen', 'uses' => 'QuyenController@postThem']);
+        Route::get('sua/{id}', ['as' => 'suaQuyen', 'uses' => 'QuyenController@getSua']);
+        Route::post('sua/{id}', ['as' => 'postSuaQuyen', 'uses' => 'QuyenController@postSua']);
+        Route::get('xoa/{id}', ['as' => 'xoaQuyen', 'uses' => 'QuyenController@getXoa']);
+    });
 
 	//----------nguoi-dung-------------------------------------------------
-	Route::get('nguoi-dung', ['as' => 'nguoiDung', 'uses' => 'NguoiDungController@getDanhSach']);
-	Route::get('nguoi-dung/them', ['as' => 'themNguoiDung', 'uses' => 'NguoiDungController@getThem']);
-	Route::post('nguoi-dung/them', ['as' => 'postThemNguoiDung', 'uses' => 'NguoiDungController@postThem']);
-	Route::get('nguoi-dung/sua/{id}', ['as' => 'suaNguoiDung', 'uses' => 'NguoiDungController@getSua']);
-	Route::post('nguoi-dung/sua/{id}', ['as' => 'postSuaNguoiDung', 'uses' => 'NguoiDungController@postSua']);
-	Route::get('nguoi-dung/xoa/{id}', ['as' => 'xoaNguoiDung', 'uses' => 'NguoiDungController@getXoa']);
+    Route::group(['prefix' => 'nguoi-dung', 'middleware' => 'phanQuyen'], function() {
+        Route::get('', ['as' => 'nguoiDung', 'uses' => 'NguoiDungController@getDanhSach']);
+        Route::get('them', ['as' => 'themNguoiDung', 'uses' => 'NguoiDungController@getThem']);
+        Route::post('them', ['as' => 'postThemNguoiDung', 'uses' => 'NguoiDungController@postThem']);
+        Route::get('sua/{id}', ['as' => 'suaNguoiDung', 'uses' => 'NguoiDungController@getSua']);
+        Route::post('sua/{id}', ['as' => 'postSuaNguoiDung', 'uses' => 'NguoiDungController@postSua']);
+        Route::get('xoa/{id}', ['as' => 'xoaNguoiDung', 'uses' => 'NguoiDungController@getXoa']);
+    });
     //-----------slide-----------------------------------------------------
     Route::get('slide', ['as' => 'slide', 'uses' => 'SlideController@getDanhSach']);
     Route::get('slide/them', ['as' => 'themSlide', 'uses' => 'SlideController@getThem']);
@@ -115,6 +119,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
 	Route::get('xoa-hang/{id}', ['as' => 'xoaHang', 'uses' => 'NhapHangController@xoaHang']);
 	Route::get('nhap-hang/thanh-toan', ['as' => 'thanhToan', 'uses' => 'NhapHangController@thanhToan']);
 
+	Route::get('thong-bao',['as' => 'thongBao', 'uses' => 'QuyenController@thongBao']);
 });
 
 

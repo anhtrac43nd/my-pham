@@ -48,4 +48,8 @@ class QuyenController extends Controller
     	$quyen->save();
     	return redirect()->route('quyen')->with('thongbao','Thêm thành công');
     }
+
+    public function thongBao(){
+        return view('admin.pages.phan_quyen.thong_bao');
+    }
 }
