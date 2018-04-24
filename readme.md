@@ -8,7 +8,8 @@
 - mở trình duyệt và gõ http://127.0.0.1:1234/ để vào trang giao diện người dùng
 - http://127.0.0.1:1234/admin để vào trang quản trị
 - Tài khoản admin trang quản trị
-    username : admin
-    password : 123456
+    admin/123456
+- Mở rộng : chạy 'php artisan updateShopavietnam' để update dữ liệu từ www.shopavietnam.com.
+
 
 
