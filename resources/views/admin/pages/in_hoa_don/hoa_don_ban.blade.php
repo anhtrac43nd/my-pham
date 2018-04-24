@@ -27,9 +27,9 @@
     </div>
     <div class="content" align="center">
         <h1>Hóa đơn</h1>
-        <h4>Tên khách hàng : {{$hoa_don->nguoiDung->ten_nd}}</h4>
+        <h4>Tên khách hàng : {{@$hoa_don->nguoiDung->ten_nd}}</h4>
         <h4>Người lập hóa đơn : {{$ten_nv}}</h4>
-        <h4>Ngày đặt hàng : {{$hoa_don->ngay_dat_hang}}</h4>
+        <h4>Ngày đặt hàng : {{@$hoa_don->ngay_dat_hang}}</h4>
         <h4>Thời gian in:  {{$date}}</h4>
 
         <table>
@@ -43,7 +43,7 @@
             @foreach($chi_tiet_hd as $key => $row)
                 <tr>
                     <td>{{$key + 1}}</td>
-                    <td>{{$row->sanPham->ten_sp}}</td>
+                    <td>{{@$row->sanPham->ten_sp}}</td>
                     <td>{{$row->so_luong_ban}}</td>
                     <td>{{$row->gia_sp}}</td>
                     <td>{{$row->thanh_tien}}</td>

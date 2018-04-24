@@ -14,12 +14,12 @@
                     <div class="features_items"><!--features_items-->
                         <h2 class="title text-center">Tìm kiếm </h2>
                         @foreach($san_pham as $row)
-                            <div class="col-sm-4">
+                            <div class="col-md-3">
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <a href="{{route('chi_tiet_sp', $row->ten_khong_dau)}}">
-                                                <img src="{{asset('')}}upload/hinh_anh/{{$row->anh}}" alt="" />
+                                            <a href="{{route('chi_tiet_sp',['name' => $row->ten_khong_dau, 'id' => $row->ma_sp] )}}">
+                                            <img src="{{asset('')}}upload/hinh_anh/{{$row->anh}}" alt="" />
                                                 <h2>{{$row->don_gia}} VND</h2>
                                                 <p>{{$row->ten_sp}}</p>
                                             </a>

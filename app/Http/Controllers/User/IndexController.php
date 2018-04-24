@@ -14,10 +14,10 @@ class IndexController extends Controller
 {
     //
     public function trangChu(){
-        $san_pham = SanPham::orderby('ma_sp','desc')->limit(6)->get();
+        $san_pham = SanPham::orderby('ma_sp','desc')->limit(12)->get();
         $thuong_hieu_1 = ThuongHieu::limit(8)->get();
         foreach($thuong_hieu_1 as $row){
-            $row->san_pham = SanPham::where('ma_thuong_hieu', $row->ma_thuong_hieu)->limit(6)->get();
+            $row->san_pham = SanPham::where('ma_thuong_hieu', $row->ma_thuong_hieu)->limit(4)->get();
         }
         $san_pham_random = SanPham::get()->random(3);
     	return view('user.pages.trang_chu', compact('san_pham', 'thuong_hieu_1','san_pham_random'));
@@ -25,13 +25,13 @@ class IndexController extends Controller
 
     public function getThuongHieu($name){
     	$ten_thuong_hieu = ThuongHieu::where('ten_khong_dau', $name)->first();
-    	$san_pham = SanPham::where('ma_thuong_hieu', $ten_thuong_hieu->ma_thuong_hieu)->paginate(9);
+    	$san_pham = SanPham::where('ma_thuong_hieu', $ten_thuong_hieu->ma_thuong_hieu)->paginate(12);
     	return view('user.pages.thuong_hieu', compact('ten_thuong_hieu','san_pham'));
     }
 
     public function getLoaiSanPham($name){
     	$lsp = LoaiSanPham::where('ten_khong_dau', $name)->first();
-    	$san_pham = SanPham::where('ma_loai', $lsp->ma_loai)->paginate(9);
+    	$san_pham = SanPham::where('ma_loai', $lsp->ma_loai)->paginate(12);
     	return view('user.pages.loai_san_pham', compact('lsp','san_pham'));
     }
 
@@ -61,7 +61,7 @@ class IndexController extends Controller
         $ten_tk = $request->ten_tk;
         $mat_khau = md5($request->mat_khau);
         $nguoi_dung = NguoiDung::where('ten_tk',$ten_tk)->where('mat_khau',$mat_khau)->first();
-        if(count($nguoi_dung) > 0 ){
+        if(isset($nguoi_dung)){
             Session::put('nguoi_dung', $nguoi_dung);
             return redirect()->route('trangChu');
         }else{

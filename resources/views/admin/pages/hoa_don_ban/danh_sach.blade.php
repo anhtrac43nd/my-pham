@@ -56,7 +56,7 @@
                 @foreach($hoa_don as $row)
                 <tr>
                   <td>{{$row->ma_hd}}</td>
-                  <td>{{$row->nguoiDung->ten_nd}}</td>
+                  <td>{{@$row->nguoiDung->ten_nd}}</td>
                   <td>{{$row->ngay_dat_hang}}</td>
                   <td>{{$row->tong_tien}}</td>
                   <td>@if($row->trang_thai_chuyen_tien == 1)

@@ -16,6 +16,9 @@ class Kernel extends ConsoleKernel
         //
 
         'App\Console\Commands\UpdateBeautyGardenCommand',
+        'App\Console\Commands\UpdateHasakiCommand',
+        'App\Console\Commands\UpdateShopavietnamCommand',
+
     ];
 
     /**

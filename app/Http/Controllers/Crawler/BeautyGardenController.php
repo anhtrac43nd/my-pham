@@ -39,22 +39,28 @@ class BeautyGardenController extends Controller
     			$link_item = 'https://beautygarden.vn'.$link_item;
     			echo $img."\n".$link_item."\n";
     			$data = $this->getInfo($link_item);
+    			var_dump($data);
     			if($data == 0){
     			    continue;
                 }
+//                dd($data);
     			if($this->checkProduct($data['title']) == 0){
                     echo "dang-tien-hanh-luu-san-pham:".$data['title']."\n";
                     $product = new SanPham();
                     $product->ten_sp = $data['title'];
                     echo $product->ten_sp."\n";
-                    // $product->ten_khong_dau = changeTitle(mb_strtolower($data['title']));
+//                    $ten_khong_dau = $data['title'];
+//                    $ten_khong_dau = htmlentities($ten_khong_dau, ENT_QUOTES , "UTF-8");
+//                     $product->ten_khong_dau = changeTitle($ten_khong_dau);
                     // echo $product->ten_sp."\n";
-                    echo $product->ten_khong_dau."\n";
+//                    var_dump($product->ten_khong_dau);
+//                    die();
+//                    echo $product->ten_khong_dau."\n";
                     $product->ma_loai = $this->checkCategory($data['category']);
                     $product->ma_thuong_hieu = $this->checkBrand($data['brand']);
                     $product->don_gia = $data['price'];
                     $product->anh = $this->checkImage($img, $data['title']);
-                    $product->mo_ta = $data['desc'];
+                    $product->mo_ta = htmlentities($data['desc'], ENT_QUOTES , "UTF-8");
                     // dd($product->mo_ta);
                     $product->save();
                     echo "luu-thanh-cong-san-pham:".$data['title']."\n";
@@ -100,7 +106,7 @@ class BeautyGardenController extends Controller
 		$price = $html->find('span.price',0)->innertext;
 		$price = str_replace(",", "", $price);
 		$price = (int)(str_replace("₫", "", $price));
-		$desc = $html->find('#description .block-content', 0)->innertext;
+		$desc = $html->find('.tab-content', 0)->innertext;
 		$desc = str_replace('data-src="/', 'src="https://beautygarden.vn/', $desc);
 		$desc = str_replace('<a href="/', '<a href="https://beautygarden.vn/', $desc);
 		return [
@@ -122,8 +128,8 @@ class BeautyGardenController extends Controller
     		return $category->ma_loai;
     	}
     	$category = LoaiSanPham::create([
-    		'ten_loai' => $name,
-    		'ten_khong_dau' => changeTitle($name)
+    		'ten_loai' => $name
+//    		'ten_khong_dau' => changeTitle($name)
     	]);
 
     	return $category->ma_loai;
@@ -135,8 +141,8 @@ class BeautyGardenController extends Controller
     		return $brand->ma_thuong_hieu;
     	}
     	$brand = ThuongHieu::create([
-    		'ten_thuong_hieu' => $name,
-    		'ten_khong_dau' => changeTitle($name)
+    		'ten_thuong_hieu' => $name
+//    		'ten_khong_dau' => changeTitle($name)
     	]);
 
     	return $brand->ma_thuong_hieu;

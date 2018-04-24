@@ -19,9 +19,9 @@ Route::group(['namespace' => 'User'], function(){
     Route::get('dang-xuat',['as' => 'dangXuat', 'uses' => 'IndexController@dangXuat']);
 
 	Route::get('/', ['as' => 'trangChu', 'uses' => 'IndexController@trangChu'] );
-	Route::get('thuong-hieu/{name}', ['as' => 'thuong_hieu', 'uses' => 'IndexController@getThuongHieu']);
-	Route::get('loai-san-pham/{name}', ['as' => 'loai_sp', 'uses' => 'IndexController@getLoaiSanPham']);
-	Route::get('chi-tiet-san-pham/{name}', ['as' => 'chi_tiet_sp', 'uses' => 'IndexController@getChiTietSP']);
+	Route::get('thuong-hieu/{name}/{id}', ['as' => 'thuong_hieu', 'uses' => 'IndexController@getThuongHieu']);
+	Route::get('loai-san-pham/{name}/{id}', ['as' => 'loai_sp', 'uses' => 'IndexController@getLoaiSanPham']);
+	Route::get('chi-tiet-san-pham/{name}/{id}', ['as' => 'chi_tiet_sp', 'uses' => 'IndexController@getChiTietSP']);
     Route::get('tim-kiem', ['as' => 'timKiem', 'uses' => 'IndexController@timKiem']);
 
     Route::get('gio-hang', ['as' => 'gioHang', 'uses' => 'GioHangController@gioHang']);

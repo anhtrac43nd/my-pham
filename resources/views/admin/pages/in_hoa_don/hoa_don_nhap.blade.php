@@ -41,7 +41,7 @@
         @foreach($chi_tiet_hd as $key => $row)
             <tr>
                 <td>{{$key + 1}}</td>
-                <td>{{$row->sanPham->ten_sp}}</td>
+                <td>{{@$row->sanPham->ten_sp}}</td>
                 <td>{{$row->so_luong}}</td>
                 <td>{{$row->gia_nhap}}</td>
                 <td>{{$row->thanh_tien}}</td>

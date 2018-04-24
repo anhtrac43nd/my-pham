@@ -70,14 +70,14 @@
 								<li class="dropdown"><a href="#">Loại Sản Phẩm<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         @foreach ($loai_san_pham as $row)
-											<li><a href="{{route('loai_sp', $row->ten_khong_dau)}}">{{$row->ten_loai}}</a></li>
+											<li><a href="{{route('loai_sp', ['name' => $row->ten_khong_dau, 'id' => $row->ma_loai])}}">{{$row->ten_loai}}</a></li>
 										@endforeach
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#">Thương Hiệu<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
 										@foreach($thuong_hieu as $row)
-                                        	<li><a href="{{route('thuong_hieu', $row->ten_khong_dau)}}">{{$row->ten_thuong_hieu}}</a></li>
+                                        	<li><a href="{{route('thuong_hieu', ['name' => $row->ten_khong_dau, 'id' => $row->ma_thuong_hieu])}}">{{$row->ten_thuong_hieu}}</a></li>
 										@endforeach
 
                                     </ul>

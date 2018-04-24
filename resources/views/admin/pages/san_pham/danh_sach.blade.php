@@ -60,8 +60,8 @@
                 <tr>
                   <td>{{$row->ma_sp}}</td>
                   <td>{{$row->ten_sp}}</td>
-                  <td>{{$row->loaiSanPham->ten_loai}}</td>
-                  <td>{{$row->thuongHieu->ten_thuong_hieu}}</td>
+                  <td>{{@$row->loaiSanPham->ten_loai}}</td>
+                  <td>{{@$row->thuongHieu->ten_thuong_hieu}}</td>
                   <td>{{$row->don_gia}}</td>
                   <td>{{$row->so_luong}}</td>
                   <td><img height="100px;" src="{{asset('')}}upload/hinh_anh/{{$row->anh}}"></td>

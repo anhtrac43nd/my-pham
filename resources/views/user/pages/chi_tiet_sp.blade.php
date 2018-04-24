@@ -18,28 +18,7 @@
 								<!-- <h3>ZOOM</h3> -->
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
-								
-								  <!-- Wrapper for slides -->
-								   {{--<div class="carousel-inner">--}}
-										{{--<div class="item">--}}
-										  {{--<a href=""><img src="{{asset('')}}users/images/product-details/similar1.jpg" alt=""></a>--}}
-										  {{--<a href=""><img src="{{asset('')}}users/images/product-details/similar2.jpg" alt=""></a>--}}
-										  {{--<a href=""><img src="{{asset('')}}users/images/product-details/similar3.jpg" alt=""></a>--}}
-										{{--</div>--}}
-										{{--<div class="item active">--}}
-										  {{--<a href=""><img src="{{asset('')}}users/images/product-details/similar1.jpg" alt=""></a>--}}
-										  {{--<a href=""><img src="{{asset('')}}users/images/product-details/similar2.jpg" alt=""></a>--}}
-										  {{--<a href=""><img src="{{asset('')}}users/images/product-details/similar3.jpg" alt=""></a>--}}
-										{{--</div>--}}
-										{{--<div class="item">--}}
-										  {{--<a href=""><img src="{{asset('')}}users/images/product-details/similar1.jpg" alt=""></a>--}}
-										  {{--<a href=""><img src="{{asset('')}}users/images/product-details/similar2.jpg" alt=""></a>--}}
-										  {{--<a href=""><img src="{{asset('')}}users/images/product-details/similar3.jpg" alt=""></a>--}}
-										{{--</div>--}}
 
-									{{--</div> --}}
-
-								  <!-- Controls -->
 								  <a class="left item-control" href="#similar-product" data-slide="prev">
 									<i class="fa fa-angle-left"></i>
 								  </a>
@@ -76,68 +55,17 @@
 						<div class="col-sm-12">
 							<ul class="nav nav-tabs">
 								<li class="active"><a href="#mota" data-toggle="tab">Mô Tả Sản Phẩm</a></li>
-								<li class=""><a href="#tag" data-toggle="tab">Sản phẩm cùng loại</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
-							
-							<div class="tab-pane fade " id="tag">
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery1.jpg" alt="">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery2.jpg" alt="">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery3.jpg" alt="">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery4.jpg" alt="">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
+
+
 							<div class="tab-pane fade active in" id="mota">
 								<div class="col-sm-12">
 									{!! $san_pham->mo_ta !!}
 								</div>
 							</div>
-							
+
 						</div>
 					</div><!--/category-tab-->
 					
@@ -148,7 +76,7 @@
 							<div class="carousel-inner">
 								<div class="item active">
 									@foreach($san_pham_random as $row)
-										<a href="{{route('chi_tiet_sp', $row->ten_khong_dau)}}">
+										<a href="{{route('chi_tiet_sp',['name' => $row->ten_khong_dau, 'id' => $row->ma_sp] )}}">
 										<div class="col-sm-4">
 											<div class="product-image-wrapper">
 												<div class="single-products">

@@ -55,7 +55,7 @@
                                 @foreach($lo_hang as $row)
                                     <tr>
                                         <td>{{$row->ma_lo}}</td>
-                                        <td>{{$row->sanPham->ten_sp}}</td>
+                                        <td>{{@$row->sanPham->ten_sp}}</td>
                                         <td>{{$row->so_luong}}</td>
                                         <td>{{$row->gia_nhap}}</td>
                                         <td>{{$row->thanh_tien}}</td>
