@@ -109,7 +109,7 @@ class IndexController extends Controller
 
     public function timKiem(Request $request){
         $key = $request->key;
-        $san_pham = SanPham::where('ten_sp','like', '%' . $key . '%')->paginate(9);
-        return view('user.pages.tim_kiem',compact('san_pham'));
+        $san_pham = SanPham::where('ten_sp','like', '%' . $key . '%')->paginate(12);
+        return view('user.pages.tim_kiem',compact('san_pham', 'key'));
     }
 }
