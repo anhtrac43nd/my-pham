@@ -33,7 +33,7 @@ class ShopavietnamController extends Controller
                 if(!$html->find('.product-wrapper')){
                     break;
                 }
-                echo "dang-tien hanh-update-trang-".$i."\n";
+                echo "dang-tien hanh-update-trang-".$i."-loai-sp-".$key."\n";
                 foreach ($html->find('.product-wrapper') as $row1){
                     $src = $row1->children(0)->href;
                     echo $src."\n";
@@ -43,20 +43,24 @@ class ShopavietnamController extends Controller
                     }
                     $title = $data['title'];
                     $product = SanPham::where('ten_sp',$title)->first();
-                    if(empty($product)){
+                    if(!isset($product)){
                         $product =  new SanPham();
                         $product->ten_sp = $title;
                         $product->ten_khong_dau = changeTitle($title);
                         $product->ma_loai = $this->checkCategory($cate);
                         $product->ma_thuong_hieu = $this->checkBrand($data['brand']);
                         $product->don_gia = (int)$data['price'];
+                        $product->gia_khuyen_mai = (int)$data['price_sale'];
                         $product->anh = $this->checkImage($data['img'], $title);
                         $product->mo_ta = $data['details'];
+                        $product->phan_tram_khuyen_mai = round((($product->don_gia - $product->gia_khuyen_mai)/$product->don_gia) * 100);
                         $product->save();
                         echo "luu-thanh-cong-".$title."\n";
                     }else{
-                        if($product->don_gia !== (int)$data['price']){
+                        if($product->gia_khuyen_mai !== (int)$data['price_sale']){
                             $product->don_gia = (int)$data['price'];
+                            $product->gia_khuyen_mai = (int)$data['price_sale'];
+                            $product->phan_tram_khuyen_mai = round((($product->don_gia - $product->gia_khuyen_mai)/$product->don_gia) * 100);
                             $product->save();
                             echo "cap-nhat-thanh-cong-gia-sp-".$title."\n";
                         }
@@ -79,15 +83,16 @@ class ShopavietnamController extends Controller
         }
         if($html->find('.detail-priceroot-sale')) {
             $price = $html->find('.detail-priceroot-sale',0)->innertext;
-
+            $price_sale = $html->find('.detail-saleoff',0)->innertext;
         }else if($html->find('.detail-priceroot')){
             $price = $html->find('.detail-priceroot',0)->innertext;
-
+            $price_sale = $price;
         }else{
             return 0;
         }
         $filter = ['.',' ','VND'];
         $price = str_replace($filter,'', $price);
+        $price_sale = str_replace($filter, '', $price_sale);
         if($html->find('#pd-summary')){
             $details = $html->find('#pd-summary', 0)->innertext;
 
@@ -100,13 +105,16 @@ class ShopavietnamController extends Controller
         $img = $html->find('.lazy-disable',0)->srcset;
         $img = explode(',', $img);
         $img = explode(' ', $img[0])[0];
-        return [
+        $result =  [
             'title' => $title,
             'brand' => $brand,
             'price' => $price,
+            'price_sale' => $price_sale,
             'details' => $details,
             'img' => $img
         ];
+
+        return $result;
     }
 
     public function checkCategory($name){

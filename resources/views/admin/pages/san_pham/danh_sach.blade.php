@@ -49,7 +49,8 @@
                   <th>Tên Sản Phẩm</th>
                   <th>Loại Sản Phẩm</th>
                   <th>Tên Thương Hiệu</th>
-                  <th>Giá</th>
+                  <th>Giá gốc</th>
+                  <th>Khuyến mại</th>
                   <th>Số lượng</th>
                   <th>Ảnh</th>
                   <th></th>
@@ -63,6 +64,7 @@
                   <td>{{@$row->loaiSanPham->ten_loai}}</td>
                   <td>{{@$row->thuongHieu->ten_thuong_hieu}}</td>
                   <td>{{$row->don_gia}}</td>
+                  <td>{{$row->phan_tram_khuyen_mai}}%</td>
                   <td>{{$row->so_luong}}</td>
                   <td><img height="100px;" src="{{asset('')}}upload/hinh_anh/{{$row->anh}}"></td>
                   <td><a href="{{route('suaSanPham', $row->ma_sp)}}">Sửa</a>|

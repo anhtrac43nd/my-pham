@@ -26,11 +26,14 @@ class SanPhamController extends Controller
     	*/
     	$this->validate($request,[
 				'ten_san_pham' => 'unique:san_pham,ten_sp',
-				'gia' => 'numeric'
+				'gia' => 'numeric',
+                'phan_tram_km' => 'numeric|min:0|max:100'
 			],
 			[
 				'ten_san_pham.unique' => 'Tên đã tồn tại',
-				'gia.numeric' => 'Giá phải là chữ số'
+				'gia.numeric' => 'Giá phải là chữ số',
+                'phan_tram_km.min' => 'Phần trăm km từ 0 - 100',
+                'phan_tram_km.max' => 'Phần trăm km từ 0 - 100'
 			]
 		);
 
@@ -41,6 +44,8 @@ class SanPhamController extends Controller
 		$ma_loai_sp = $request->loai_sp;
 		$ma_thuong_hieu = $request->thuong_hieu;
 		$gia = $request->gia;
+        $phan_tram_km = $request->phan_tram_km;
+        $gia_khuyen_mai = round(($gia/100)*(100-$phan_tram_km));
 		if($request->file('hinh_anh')) {
 			/*
 				Kiểm tra định dạng, size
@@ -77,6 +82,8 @@ class SanPhamController extends Controller
         $san_pham->don_gia = $gia;
         $san_pham->anh = $ten_url;
         $san_pham->mo_ta = $mo_ta;
+        $san_pham->phan_tram_khuyen_mai = $phan_tram_km;
+        $san_pham->gia_khuyen_mai = $gia_khuyen_mai;
         $san_pham->save();
 
         return redirect()->route('sanPham')->with('thongbao','Thêm sản phẩm thành công');
@@ -95,7 +102,8 @@ class SanPhamController extends Controller
     	*/
     	$this->validate($request,[
 				'ten_san_pham' => 'unique:san_pham,ten_sp,'.$id.',ma_sp',
-				'gia' => 'numeric'
+				'gia' => 'numeric',
+                'phan_tram_km' => 'numeric|min:0|max:100'
 			],
 			[
 				'ten_san_pham.unique' => 'Tên đã tồn tại',
@@ -112,6 +120,8 @@ class SanPhamController extends Controller
 		$ma_loai_sp = $request->loai_sp;
 		$ma_thuong_hieu = $request->thuong_hieu;
 		$gia = $request->gia;
+        $phan_tram_km = $request->phan_tram_km;
+        $gia_khuyen_mai = round(($gia/100)*(100-$phan_tram_km));
 		if($request->file('hinh_anh')) {
 			/*
 				Kiểm tra định dạng, size
@@ -149,6 +159,8 @@ class SanPhamController extends Controller
         $san_pham->ma_loai = $ma_loai_sp;
         $san_pham->ma_thuong_hieu = $ma_thuong_hieu;
         $san_pham->don_gia = $gia;
+        $san_pham->phan_tram_khuyen_mai = $phan_tram_km;
+        $san_pham->gia_khuyen_mai = $gia_khuyen_mai;
         $san_pham->mo_ta = $mo_ta;
         $san_pham->save();
 

@@ -12,10 +12,7 @@ use Illuminate\Support\Facades\Session;
 use App\SanPham;
 class GioHangController extends Controller
 {
-    //
     public function gioHang(){
-//        session_destroy();
-//        dd($_SESSION['gio_hang']);
         if(!isset($_SESSION['gio_hang'])){
             $_SESSION['gio_hang'] = array();
         }
@@ -55,7 +52,7 @@ class GioHangController extends Controller
             $row['ten_sp'] = $san_pham->ten_sp;
             $row['so_luong'] = $so_luong;
             $row['anh'] = $san_pham->anh;
-            $row['gia'] = $san_pham->don_gia;
+            $row['gia'] = $san_pham->gia_khuyen_mai;
             $row['thanh_tien'] = $row['so_luong'] * $row['gia'];
             array_push($_SESSION['gio_hang'], $row);
         }
@@ -89,7 +86,7 @@ class GioHangController extends Controller
             $row['ten_sp'] = $san_pham->ten_sp;
             $row['so_luong'] = 1;
             $row['anh'] = $san_pham->anh;
-            $row['gia'] = $san_pham->don_gia;
+            $row['gia'] = $san_pham->gia_khuyen_mai;
             $row['thanh_tien'] = $row['so_luong'] * $row['gia'];
             array_push($_SESSION['gio_hang'], $row);
         }
@@ -157,11 +154,8 @@ class GioHangController extends Controller
     }
 
     public function capNhatGioHang($id, $so_luong){
-//        dd($_SESSION['gio_hang']);
         $ma_sp = $_SESSION['gio_hang'][$id]['ma_sp'];
-//        dd($ma_sp);
         $san_pham = SanPham::where('ma_sp', $ma_sp)->first();
-//        dd($san_pham);
         if($san_pham->so_luong < $so_luong){
             return 0; //số lượng đa
         }

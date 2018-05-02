@@ -18,11 +18,18 @@
 													<div class="productinfo text-center">
 														<a href="{{route('chi_tiet_sp', ['name' => $row->ten_khong_dau, 'id' => $row->ma_sp] )}}">
 															<img src="{{asset('')}}upload/hinh_anh/{{$row->anh}}" alt="" />
-															<h2>{{$row->don_gia}} VND</h2>
+															@if($row->phan_tram_khuyen_mai > 0)
+																<h2>{{$row->gia_khuyen_mai}}</h2>
+															@else
+																<h2>{{$row->don_gia}}</h2>
+															@endif
 															<p>{{$row->ten_sp}}</p>
 														</a>
 														<a href="#" data-id="{{$row->ma_sp}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 													</div>
+													@if($row->phan_tram_khuyen_mai > 0)
+													<div class="new lb_sale"><span>Sale {{$row->phan_tram_khuyen_mai}}%</span></div>
+													@endif
 
 											</div>
 
@@ -52,12 +59,18 @@
 												<div class="productinfo text-center">
 													<a href="{{route('chi_tiet_sp', ['name' => $row_1->ten_khong_dau, 'id' => $row_1->ma_sp] )}}">
 														<img src="{{asset('')}}upload/hinh_anh/{{$row_1->anh}}" alt="" />
-														<h2>{{$row_1->don_gia}}</h2>
+														@if($row_1->phan_tram_khuyen_mai > 0)
+															<h2>{{$row_1->gia_khuyen_mai}}</h2>
+														@else
+															<h2>{{$row_1->don_gia}}</h2>
+														@endif
 														<p>{{$row_1->ten_sp}}</p>
 													</a>
 													<a data-id="{{$row_1->ma_sp}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 												</div>
-
+												@if($row_1->phan_tram_khuyen_mai > 0)
+													<div class="new lb_sale"><span>Sale {{$row_1->phan_tram_khuyen_mai}}%</span></div>
+												@endif
 											</div>
 										</div>
 									</div>
@@ -82,13 +95,20 @@
 													<div class="productinfo text-center">
 														<a href="{{route('chi_tiet_sp',['name' => $row->ten_khong_dau, 'id' => $row->ma_sp] )}}">
 															<img src="{{asset('')}}upload/hinh_anh/{{$row->anh}}" alt="" />
-															<h2>{{$row->don_gia}}</h2>
+															@if($row->phan_tram_khuyen_mai > 0)
+																<h2>{{$row->gia_khuyen_mai}}</h2>
+															@else
+																<h2>{{$row->don_gia}}</h2>
+															@endif
 															<p>{{$row->ten_sp}}</p>
 														</a>
 															<a data-id="{{$row->ma_sp}}" class="btn btn-default add-to-cart"><i class="fa
 															fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+
 													</div>
-													
+													@if($row->phan_tram_khuyen_mai > 0)
+														<div class="new lb_sale"><span>Sale {{$row->phan_tram_khuyen_mai}}%</span></div>
+													@endif
 												</div>
 											</div>
 										</div>
@@ -108,7 +128,9 @@
 														</a>
 														<a data-id="{{$row->ma_sp}}" href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 													</div>
-													
+													@if($row->phan_tram_khuyen_mai > 0)
+														<div class="new lb_sale"><span>Sale {{$row->phan_tram_khuyen_mai}}%</span></div>
+													@endif
 												</div>
 											</div>
 										</div>

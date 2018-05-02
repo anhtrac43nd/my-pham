@@ -70,7 +70,10 @@
                   <label>Giá</label>
                   <input type="text" class="form-control" required="" name="gia" placeholder="Nhập giá của sản phẩm ...">
                 </div>
-
+                <div class="form-group">
+                    <label>Phần trăm khuyến mại</label>
+                    <input type="text" class="form-control" value="0" required="" name="phan_tram_km" placeholder="Phần trăm km của sản phẩm ...">
+                </div>
                 <div class="form-group">
                   <label for="exampleInputFile">File input</label>
                   <input type="file" name="hinh_anh" id="hinh_anh">
